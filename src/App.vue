@@ -1,17 +1,23 @@
 <template>
     <div id="app">
-        <img src="./assets/logo.png">
-        <KiwiIrc :config="config"/>
+        <KiwiIrc :kiwi-config="kiwiConfig"/>
     </div>
 </template>
 
 <script>
+import KiwiIrc from 'kiwiirc/Kiwi.vue'
 
-window.kiwiConfig = function () {
-    return        {
+export default {
+    components: {
+        KiwiIrc
+    },
+    data() {
+        return {
+            kiwiIndex: '../src/components/kiwiirc/dist/index.html',
+            kiwiConfig: {
                     "windowTitle": "Kiwi IRC - The web IRC client",
                     "startupScreen": "welcome",
-                    "kiwiServer": "https://localdev.clients.kiwiirc.com/webirc/kiwiirc/",
+                    "kiwiServer": "https://cantelope.ml:8110/webirc/kiwiirc/",
                     "restricted": false,
                     "theme": "Nightswatch",
                     "themes": [
@@ -41,34 +47,18 @@ window.kiwiConfig = function () {
                     ]
                 }
 
-}
-import KiwiIrc from 'kiwiirc/vue.js'
-
-export default {
-    name: 'App',
-    components: {
-        KiwiIrc
-    },
-    data() {
-        return {
-            config: window.kiwiConfig()
-        }
-    },
-    mounted() {
-        window.kiwiConfig = function () {
-            return this.config
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25vh;
-    height: 50vh;
-    width: 50%;
+    margin-top: 12.5vh;
+    height: 75vh;
+    width: 75%;
     border: 1px solid black;
 }
 </style>
