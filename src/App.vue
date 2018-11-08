@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <KiwiIrc :kiwi-config="kiwiConfig"/>
+        <KiwiIrc :kiwi-config="kiwiConfig" :kiwi-path="kiwiPath"/>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
     },
     data() {
         return {
-            kiwiIndex: '../src/components/kiwiirc/dist/index.html',
+            kiwiPath: '../node_modules/kiwiirc/dist/',
             kiwiConfig: {
                     "windowTitle": "Kiwi IRC - The web IRC client",
                     "startupScreen": "welcome",
